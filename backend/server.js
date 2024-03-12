@@ -1,8 +1,10 @@
 const express = require("express");
 const fs = require("fs");
+const cors = require("cors");
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/users", (req, res) => {
   fs.readFile("MOCK_DATA.json", "utf8", (err, data) => {
@@ -15,14 +17,7 @@ app.get("/users", (req, res) => {
     try {
       let users = JSON.parse(data);
 
-      // Pagination
-      const page = parseInt(req.query.page) || 1;
-      const limit = parseInt(req.query.limit) || 10;
-      const startIndex = (page - 1) * limit;
-      const endIndex = page * limit;
       const total = users.length;
-
-      users = users.slice(startIndex, endIndex);
 
       // Sorting
       if (req.query.sortBy) {
@@ -80,11 +75,21 @@ app.get("/users", (req, res) => {
         );
       }
 
+      // Pagination
+      const page = parseInt(req.query.page) || 1;
+      const limit = parseInt(req.query.limit) || 10;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+      const total_filtered = users.length;
+
+      users = users.slice(startIndex, endIndex);
+
       res.json({
         page,
         limit,
         total,
-        users,
+        total_filtered,
+        data: users,
       });
     } catch (err) {
       console.error(err);
