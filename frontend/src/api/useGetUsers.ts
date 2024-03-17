@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { UseUsersInput, UseUsersResponse } from "../types/Users";
 
+const backend_url = "http://localhost:3000";
+
 const getAllUsersFn: {
   ({
     sorting,
@@ -57,20 +59,9 @@ const getAllUsersFn: {
       sorting_param += ",";
     }
   }
-  console.log(
-    `http://localhost:3000/users?${
-      first_name !== "" ? `first_name=${first_name}&` : ""
-    }${last_name !== "" ? `last_name=${last_name}&` : ""}${
-      username !== "" ? `username=${username}&` : ""
-    }${email !== "" ? `email=${email}&` : ""}${
-      country !== "" ? `country=${country}&` : ""
-    }${city !== "" ? `city=${city}&` : ""}${
-      sorting_param !== "" ? `sortBy=${sorting_param}&` : ""
-    }page=${page}&limit=${per_page}`
-  );
 
   const res = await axios.get(
-    `http://localhost:3000/users?${
+    `${backend_url}/users?${
       first_name !== "" ? `first_name=${first_name}&` : ""
     }${last_name !== "" ? `last_name=${last_name}&` : ""}${
       username !== "" ? `username=${username}&` : ""
