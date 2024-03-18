@@ -18,7 +18,7 @@ ReactJS Application is deployed at: https://tanstack-table-demo-react.netlify.ap
 
    b. `npm i`
 
-   c. `npm run dev`
+   c. `npm run devStart`
 
    This will serve the backend at http://localhost:3000
 

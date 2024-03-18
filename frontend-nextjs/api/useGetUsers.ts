@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { UseUsersInput, UseUsersResponse } from "../types/Users";
 
-const backend_url = "http://localhost:3000";
+const backend_url = "https://tan-stack-table-backend.onrender.com";
 
 const getAllUsersFn: {
   ({
@@ -80,11 +80,10 @@ export const useGetUsers = ({
   columnFilters,
   pagination,
 }: UseUsersInput) => {
-  const {
-    data: allUsersData,
-    status: allUsersDataStatus,
-    isLoading: isAllUsersDataLoading,
-  } = useQuery<UseUsersResponse, AxiosError>({
+  const { data: allUsersData, isLoading: isAllUsersDataLoading } = useQuery<
+    UseUsersResponse,
+    AxiosError
+  >({
     queryKey: ["users", sorting, columnFilters, pagination],
     queryFn: () =>
       getAllUsersFn({
@@ -94,5 +93,5 @@ export const useGetUsers = ({
       }),
   });
 
-  return { allUsersData, allUsersDataStatus, isAllUsersDataLoading };
+  return { allUsersData, isAllUsersDataLoading };
 };

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { UseUsersInput, UseUsersResponse } from "../types/Users";
 
-const backend_url = "http://localhost:3000";
+const backend_url = "https://tan-stack-table-backend.onrender.com";
 
 const getAllUsersFn: {
   ({

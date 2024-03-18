@@ -27,10 +27,7 @@ const UserTableComponent = () => {
     pageSize: 20, //default page size
   });
 
-  const {
-    allUsersData, //allUsersDataStatus,
-    isAllUsersDataLoading,
-  } = useGetUsers({
+  const { allUsersData, isAllUsersDataLoading } = useGetUsers({
     sorting,
     columnFilters: debouncedColumnFilters,
     pagination,

@@ -1,7 +1,7 @@
 import {
   getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
+  // getFilteredRowModel,
+  // getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import { useEffect } from "react";
@@ -38,14 +38,14 @@ export default function TanStackBasicTable<TData, TValue>({
     sortDescFirst: true,
 
     // filter config
-    getFilteredRowModel: getFilteredRowModel(),
+    // getFilteredRowModel: getFilteredRowModel(),
     onColumnFiltersChange: setColumnFilters,
     manualFiltering: true,
 
     // pagination config
-    getPaginationRowModel: getPaginationRowModel(),
+    // getPaginationRowModel: getPaginationRowModel(),
     onPaginationChange: setPagination,
-    rowCount: paginatedTableData?.total_filtered,
+    // rowCount: paginatedTableData?.total_filtered,
     pageCount: Math.ceil(
       (paginatedTableData?.total_filtered || 0) /
         (paginatedTableData?.limit || 1)
