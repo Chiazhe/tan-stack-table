@@ -10,6 +10,8 @@ NextJS Application is deployed at: https://tanstack-table-nextjs.vercel.app/
 
 ReactJS Application is deployed at: https://tanstack-table-demo-react.netlify.app/
 
+Medium Article: https://medium.com/@clee080/how-to-do-server-side-pagination-column-filtering-and-sorting-with-tanstack-react-table-and-react-7400a5604ff2
+
 ## Getting Started
 
 1. Serve the backend:
